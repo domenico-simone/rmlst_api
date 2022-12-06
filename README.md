@@ -16,3 +16,5 @@ optional arguments:
   --output_json OUTPUT_JSON
                         rMLST json output. default is <input>_rmlst.json
 ```
+
+API source: https://pubmlst.org/species-id/species-identification-via-api.

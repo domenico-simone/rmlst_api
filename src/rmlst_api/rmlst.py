@@ -3,6 +3,7 @@ import json
 import os
 import requests
 from collections import namedtuple
+from .constants import *
 
 
 def rmlst_api(assembly_file, sample=None):

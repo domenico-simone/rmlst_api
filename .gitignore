@@ -3,3 +3,5 @@ __pycache__
 .ipynb_checkpoints
 test.ipynb
 dist
+rmlst_output.*
+rMLST_API.egg-info/

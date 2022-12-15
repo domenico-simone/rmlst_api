@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rmlst_api"
+version = "0.0.7"
+authors = [
+  { name="Domenico Simone", email="dome.simone@gmail.com" },
+]
+description = "API to perform rMLST on PubMLST.org"
+readme = "README.md"
+requires-python = ">3.6,<3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+  "requests==2.28.1"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/domenico-simone/rmlst_api"
+"Bug Tracker" = "https://github.com/domenico-simone/rmlst_api/issues"

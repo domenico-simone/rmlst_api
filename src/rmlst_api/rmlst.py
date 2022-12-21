@@ -15,6 +15,7 @@ def rmlst_api(assembly_file, sample=None):
     api_response = requests.post(uri, data=payload)
     if api_response.status_code == requests.codes.ok:
         data = api_response.json()
+        data["sample"] = sample
     else:
         data = {}
         print(api_response.text)

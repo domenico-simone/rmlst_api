@@ -4,13 +4,13 @@ build-backend = "hatchling.build"
 
 [project]
 name = "rmlst_api"
-version = "0.0.7"
+version = "0.1.4"
 authors = [
   { name="Domenico Simone", email="dome.simone@gmail.com" },
 ]
 description = "API to perform rMLST on PubMLST.org"
 readme = "README.md"
-requires-python = ">3.6,<3.10"
+requires-python = ">3.6"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",

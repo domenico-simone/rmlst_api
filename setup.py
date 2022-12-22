@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='rMLST-API',
-    version='0.1.4',
+    version='0.1.5',
     py_modules=['src.rmlst_api.*'],
     install_requires=[
         'Click',

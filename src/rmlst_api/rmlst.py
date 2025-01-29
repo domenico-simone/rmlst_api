@@ -9,7 +9,7 @@ from .constants import *
 def rmlst_api(assembly_file, sample=None):
     if sample is None:
         sample = os.path.splitext(os.path.split(assembly_file)[1])[0]
-    uri = 'http://rest.pubmlst.org/db/pubmlst_rmlst_seqdef_kiosk/schemes/1/sequence'
+    uri = uri
     fasta = open(assembly_file, 'r').read()
     payload = '{"base64":true,"details":true,"sequence":"' + base64.b64encode(fasta.encode()).decode() + '"}'
     api_response = requests.post(uri, data=payload)

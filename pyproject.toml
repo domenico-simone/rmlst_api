@@ -5,10 +5,12 @@ description = "Python package to perform rMLST through the PubMLST API"
 authors = ["Domenico Simone <dome.simone@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+packages = [{ include = "src/rmlst_api" }]
 
 [tool.poetry.dependencies]
 python = ">3.8"
 requests = "^2.32.3"
+click = "^8.1.8"
 
 
 [tool.poetry.group.test.dependencies] 
@@ -27,3 +29,10 @@ testpaths = [
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+rmlst-api = 'src.rmlst_api.cli:run_all'
+
+[project.urls]
+"Homepage" = "https://github.com/domenico-simone/rmlst_api"
+"Bug Tracker" = "https://github.com/domenico-simone/rmlst_api/issues"

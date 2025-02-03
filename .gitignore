@@ -5,3 +5,6 @@ test.ipynb
 dist
 rmlst_output.*
 rMLST_API.egg-info/
+venv_local
+scratch
+.pytest_cache

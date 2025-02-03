@@ -14,6 +14,9 @@ requests = "^2.32.3"
 [tool.poetry.group.test.dependencies] 
 pytest = "^8.3.4"
 
+[tool.poetry.group.dev.dependencies] 
+ipykernel = "^6.29.5"
+
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "-ra -q"

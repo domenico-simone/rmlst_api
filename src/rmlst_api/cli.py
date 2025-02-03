@@ -1,7 +1,6 @@
 from .rmlst import rmlst_api
 from .rmlst import write_output_json
 from .rmlst import write_output_tab
-import sys
 import click
 from .constants import *
 

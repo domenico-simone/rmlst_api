@@ -1,10 +1,12 @@
-[tool.poetry]
+[project]
 name = "rmlst-api"
 version = "0.1.7"
 description = "Python package to perform rMLST through the PubMLST API"
 authors = ["Domenico Simone <dome.simone@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+
+[tool.poetry]
 packages = [{ include = "src/rmlst_api" }]
 
 [tool.poetry.dependencies]

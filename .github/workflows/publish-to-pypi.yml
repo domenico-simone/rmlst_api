@@ -38,6 +38,13 @@ jobs:
       - name: Package project
         run: poetry build
       
+      - name: Install wheel
+        run: find ./dist/*.whl | xargs pip install
+
+      - name: Test wheel
+        run: |
+          rmlst-api -i tests/sample_genome.fasta
+          cat rmlst_output.tab
       # - name: Store the distribution packages
       #   uses: actions/upload-artifact@v4
       #   with:

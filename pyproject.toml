@@ -11,8 +11,15 @@ python = ">3.8"
 requests = "^2.32.3"
 
 
-[tool.poetry.group.dev.dependencies]
+[tool.poetry.group.test.dependencies] 
 pytest = "^8.3.4"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
 
 [build-system]
 requires = ["poetry-core"]

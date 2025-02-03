@@ -3,25 +3,31 @@ import json
 import os
 import requests
 from collections import namedtuple
-from .constants import *
+from typing import Optional, Tuple
+
+from .constants import default_output_tab, default_output_json, uri
 
 
-def rmlst_api(assembly_file, sample=None):
+def rmlst_api(assembly_file: str, sample: Optional[str] = None, uri: str = uri) -> Tuple[str, requests.Response, dict]:
     if sample is None:
         sample = os.path.splitext(os.path.split(assembly_file)[1])[0]
-    uri = uri
-    fasta = open(assembly_file, 'r').read()
-    payload = '{"base64":true,"details":true,"sequence":"' + base64.b64encode(fasta.encode()).decode() + '"}'
-    api_response = requests.post(uri, data=payload)
+    
+    uri: str = uri  # Ensure `uri` is defined elsewhere in your code
+    fasta: str = open(assembly_file, 'r').read()
+    payload: str = "{'base64': True, 'details': True, 'sequence': '" + base64.b64encode(fasta.encode()).decode() + "'}"
+    
+    api_response: requests.Response = requests.post(uri, data=payload)
+    
     if api_response.status_code == requests.codes.ok:
-        data = api_response.json()
-        # add sample to results
+        data: dict = api_response.json()
         data["sample"] = sample
     else:
         data = {}
         print(api_response.text)
-    rmlst_api_output = namedtuple('rmlst_api_output', ['sample', 'api_response', 'data'])
-    rmlst_api_output_sample = rmlst_api_output(sample = sample, api_response = api_response, data = data)
+    
+    RmlstApiOutput = namedtuple('RmlstApiOutput', ['sample', 'api_response', 'data'])
+    rmlst_api_output_sample = RmlstApiOutput(sample=sample, api_response=api_response, data=data)
+    
     return rmlst_api_output_sample
 
 def write_output_tab(rmlst_api_output, output_tab="rmlst_output.tab"):

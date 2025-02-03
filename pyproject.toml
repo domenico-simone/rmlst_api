@@ -1,6 +1,6 @@
 [project]
 name = "rmlst-api"
-version = "0.1.7"
+version = "0.1.8"
 description = "Python package to perform rMLST through the PubMLST API"
 authors = [{ name = "Domenico Simone", email = "dome.simone@gmail.com"}]
 license = "MIT"

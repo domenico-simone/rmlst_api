@@ -14,7 +14,7 @@ def rmlst_api(assembly_file: str, sample: Optional[str] = None, uri: str = uri) 
     
     uri: str = uri  # Ensure `uri` is defined elsewhere in your code
     fasta: str = open(assembly_file, 'r').read()
-    payload: str = "{'base64': True, 'details': True, 'sequence': '" + base64.b64encode(fasta.encode()).decode() + "'}"
+    payload: str = f'{{"base64":true,"details":true,"sequence":"{base64.b64encode(fasta.encode()).decode()}"}}'
     
     api_response: requests.Response = requests.post(uri, data=payload)
     

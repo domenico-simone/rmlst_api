@@ -35,14 +35,16 @@ def test_rmlst_api(mock_post, mock_assembly_file):
     # Validate the API call
     with open(mock_assembly_file, "r") as f:
         fasta_data = f.read()
-    expected_payload = {
-        "base64": True,
-        "details": True,
-        "sequence": base64.b64encode(fasta_data.encode()).decode(),
-    }
+    expected_payload = f'''
+    {{
+        "base64":true,
+        "details":true,
+        "sequence":"{base64.b64encode(fasta_data.encode()).decode()}"
+    }}
+    '''.replace("\n", "")
     
     # Ensure correct API request was made
-    mock_post.assert_called_once_with(uri, data=str(expected_payload))  # Ensure the correct URI is used
+    mock_post.assert_called_once_with(uri, data=str(expected_payload).replace(" ", ""))
 
     # Ensure the returned named tuple has the expected values
     RmlstApiOutput = namedtuple("rmlst_api_output", ["sample", "api_response", "data"])
